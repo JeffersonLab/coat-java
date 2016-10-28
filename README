@@ -1,0 +1,16 @@
+CLAS12 Reconstruction Software
+------------------------------
+
+To run reconstruction on GEMC generated file use command:
+
+> ./bin/clara-rec -t 1 -r etc/services/reconstruction.yaml generated.evio reconstructed.evio
+
+The argument -t 1 indicates that the reconstruction will run in one thread.
+To run multithreaded change the argument to -t flag.
+
+Reconstruction can also be ran on remote machines with no connection the local
+database can be used. To make the code to use local database, define variable:
+
+> setenv CCDB_DATABASE etc/data/database/clas12database.sqlite
+
+Then run the reconstruction.
