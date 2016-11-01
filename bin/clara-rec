@@ -101,16 +101,18 @@ if [[ -z ${user_yaml} ]]; then
     cat << EOF > "${services_file}"
 ---
 services:
-  - class: org.jlab.rec.ec.ECReconstruction
-    name: EC
-  - class: org.jlab.rec.ftof.SCReconstruction
-    name: FTOF
-  - class: org.jlab.rec.dc.services.HitBasedTracking
+  - class: org.jlab.service.dc.DCHBEngine
     name: DCHB
-  - class: org.jlab.rec.dc.services.TimeBasedTracking
+  - class: org.jlab.service.ftof.FTOFEngine
+    name: FTOF
+  - class: org.jlab.rec.cvt.services.CVTReconstruction
+    name: CVT
+  - class: org.jlab.service.eb.EBEngine
+    name: EBHB
+  - class: org.jlab.service.dc.DCTBEngine
     name: DCTB
-  - class: org.jlab.rec.eb.CLASEventBuilder
-    name: EB
+  - class: org.jlab.service.eb.EBEngine
+    name: EBTB
 EOF
 # User provided services.yaml
 elif [[ -f "${user_yaml}" ]]; then
